@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L&M Gastronomia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bellota:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="overlay" id="overlayFormulario" style="display:none;">
+    <div class="modal">
+      <h3>Finalizar pedido</h3>
+      <input type="text" id="nomeCliente" placeholder="Nome completo">
+      <input type="tel" id="whatsappCliente" placeholder="WhatsApp (ex: 84999999999)">
+      <input type="text" id="enderecoCliente" placeholder="Endereço de entrega">
+      
+      <select id="formaPagamento">
+        <option value="">Forma de pagamento</option>
+        <option value="Pix">Pix</option>
+        <option value="Cartão">Cartão</option>
+        <option value="Dinheiro">Dinheiro</option>
+      </select>
+
+      <div id="areaPix">
+        <p class="pix-titulo">Pagamento via Pix</p>
+        <img src="" alt="QR Code Pix" class="pix-qrcode">
+        <p class="pix-chave">Chave: <strong>13159715426</strong></p>
+        <p class="pix-aviso">(O valor exato já está no QR Code)</p>
+      </div>
+
+      <select id="cupomDesconto">
+        <option value="">Selecione um cupom (opcional)</option>
+        <option value="LM10">Cupom: LM10 (10% OFF acima de R$ 12)</option>
+        <option value="BEMVINDO">Cupom: BEMVINDO (R$ 5,00 OFF acima de R$ 30)</option>
+        <option value="CLIENTE15">Cupom: CLIENTE15 (15% OFF acima de R$ 50)</option>
+      </select>
+
+      <textarea id="observacaoPedido" placeholder="Alguma observação? (ex: sem cebola...)" rows="2"></textarea>
+      
+      <div class="acoes">
+        <button class="voltar" id="btnVoltar">Voltar</button>
+        <button class="confirmar" id="btnConfirmar">Enviar pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlayAvaliacao" style="display:none;">
+    <div class="modal">
+      <h3>Avalie sua experiência</h3>
+      <p>Sua opinião é muito importante para a L&M!</p>
+      
+      <label>Pedido:</label>
+      <select id="notaPedido">
+        <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
+        <option value="4">⭐⭐⭐⭐ (Bom)</option>
+        <option value="3">⭐⭐⭐ (Regular)</option>
+        <option value="2">⭐⭐ (Ruim)</option>
+        <option value="1">⭐ (Péssimo)</option>
+      </select>
+
+      <label>Entrega:</label>
+      <select id="notaEntrega">
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+
+      <label>Entregador:</label>
+      <select id="notaEntregador">
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+
+      <textarea id="comentarioAvaliacao" placeholder="Quer deixar um comentário adicional?" rows="2"></textarea>
+      
+      <div class="acoes">
+        <button class="voltar" onclick="document.getElementById('overlayAvaliacao').style.display='none'">Fechar</button>
+        <button class="confirmar" id="btnEnviarAvaliacao">Enviar Avaliação</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>L&M</h1>
+      <span>gastronomia</span>
+    </header>
+
+    <h2 class="titulo">Cardápio</h2>
+
+    <section class="cardapio">
+      <div class="card" data-nome="Feijoada completa" data-preco="20">
+        <img src="feijoada.jpg">
+        <p>Feijoada completa com arroz e farofa</p>
+        <div class="info"><span>20$</span><button>+</button></div>
+      </div>
+
+      <div class="card" data-nome="Strogonoff de frango" data-preco="15">
+        <img src="strogonoff.jpg">
+        <p>Strogonoff de frango e batata palha</p>
+        <div class="info"><span>15$</span><button>+</button></div>
+      </div>
+
+      <div class="card" data-nome="Cuscuz temperado" data-preco="12">
+        <img src="cuscuz_temp.jpg">
+        <p>Cuscuz temperado especial</p>
+        <div class="info"><span>12$</span><button>+</button></div>
+      </div>
+
+      <div class="card" data-nome="Suco" data-preco="6">
+        <img src="Sucos-naturais-para-vender.jpg">
+        <p>Sucos naturais variados</p>
+        <div class="info"><span>6$</span><button>+</button></div>
+      </div>
+
+      <div class="card" data-nome="Pudim" data-preco="10">
+        <img src="pudim.jpg">
+        <p>Pudim tradicional</p>
+        <div class="info"><span>10$</span><button>+</button></div>
+      </div>
+
+      <div class="card" data-nome="Açaí no copo" data-preco="16">
+        <img src="acai.jpg">
+        <p>Açaí completo com frutas</p>
+        <div class="info"><span>16$</span><button>+</button></div>
+      </div>
+    </section>
+
+    <section class="pedido">
+      <h3>Seu pedido</h3>
+      <ul id="listaPedido"></ul>
+      <p id="infoEntrega">🚚 Taxa de entrega: R$ 5,00</p>
+      <p class="total">Total: <strong>R$ <span id="total">0.00</span></strong></p>
+    </section>
+
+    <button class="finalizar">Finalizar pedido</button>
+
+    <footer class="rodape">
+      <p>Contato</p>
+      <span>📸 Instagram: @lmgastronomia</span><br>
+      <span>📱 WhatsApp: (84) 99999-9999</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

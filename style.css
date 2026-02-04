@@ -1,0 +1,71 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Forum', serif; }
+
+body { background: #eee; display: flex; justify-content: center; padding: 10px; }
+
+.container {
+  width: 98vw; max-width: 1800px; min-height: 98vh;
+  padding: 20px 40px; border-radius: 20px;
+  background: linear-gradient(135deg, #ffe7a0, #ffb6e6);
+  display: flex; flex-direction: column;
+}
+
+header { text-align: center; margin-bottom: 10px; }
+header h1 { font-size: 55px; color: #ff9900; font-family: 'Bellota', sans-serif; }
+header span { color: #7a3eb1; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
+
+.titulo { margin: 15px 0; color: #a000a0; text-align: center; font-size: 28px; }
+
+.cardapio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+  gap: 15px; margin-bottom: 30px;
+}
+
+.card { background: white; border-radius: 12px; padding: 10px; text-align: center; transition: 0.3s; }
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; }
+.card p { margin: 8px 0; font-size: 13px; color: #444; line-height: 1.2; }
+
+.info { display: flex; justify-content: space-between; align-items: center; }
+.info span { font-weight: bold; font-size: 16px; }
+.info button { width: 30px; height: 30px; border-radius: 50%; border: none; background: #d9c8ff; cursor: pointer; font-size: 18px; font-weight: bold; }
+
+.pedido {
+  margin: 20px auto; padding: 20px; background: #c6c9ff;
+  border-radius: 15px; width: 100%; max-width: 500px; text-align: center;
+}
+
+#listaPedido { list-style: none; text-align: left; }
+#listaPedido li { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.1); }
+
+.remover { background: #ff8a8a; border: none; border-radius: 6px; color: white; cursor: pointer; padding: 2px 8px; margin-left: 10px; }
+
+.finalizar {
+  display: block; margin: 0 auto 30px; width: 250px; padding: 15px;
+  background: #b6ffb6; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; cursor: pointer;
+}
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 999;
+}
+
+.modal { background: #fff; width: 90%; max-width: 400px; padding: 25px; border-radius: 20px; text-align: center; overflow-y: auto; max-height: 90vh; }
+
+.modal label { display: block; text-align: left; font-weight: bold; margin: 10px 0 5px; font-size: 14px; color: #7a3eb1; }
+.modal input, .modal select, .modal textarea { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 10px; border: 1px solid #ddd; font-size: 14px; outline: none; }
+.modal textarea { resize: none; font-family: sans-serif; }
+
+.acoes { display: flex; gap: 10px; }
+.voltar { flex: 1; padding: 12px; background: #eee; border: none; border-radius: 10px; cursor: pointer; }
+.confirmar { flex: 1; padding: 12px; background: #caffb8; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; }
+
+#areaPix { display: none; margin: 15px 0; padding: 15px; border: 2px dashed #ff9900; border-radius: 15px; background: #fffcf5; }
+.pix-titulo { font-size: 14px; font-weight: bold; color: #333; margin-bottom: 8px; }
+.pix-qrcode { width: 150px; height: 150px; display: block; margin: 0 auto; border: 4px solid #fff; border-radius: 10px; }
+.pix-chave { font-size: 12px; color: #666; margin-top: 8px; }
+.pix-aviso { font-size: 10px; color: #999; margin-top: 4px; }
+
+.rodape { margin-top: auto; padding: 20px 0; text-align: center; color: #444; }
+
+@media (max-width: 600px) { .cardapio { grid-template-columns: repeat(2, 1fr); } }
